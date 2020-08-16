@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// viets ntn de no nhan router -dom cua react, ko thif no se tim theo router khai bao laravel va se tra ve 404
+Route::pattern('path', '[a-zA-Z0-9-/]+');
+Route::any( '{path}', function( $page ){
+     return view('welcome');
 });

@@ -29,7 +29,7 @@ class ProductListPage extends Component {
   //     }
   //  }
 
-  handleFilter = (filterRequest) => {
+  handleFilter = (filterRequest, status = true) => {
     const { productActionCreators, filter } = this.props;
     const { fetchListProduct } = productActionCreators;
 
@@ -45,7 +45,7 @@ class ProductListPage extends Component {
       }
     }
 
-    fetchListProduct(filter);
+    fetchListProduct(filter, status);
   };
   render() {
     const { classes, listProduct, listCategory, filter, statexx } = this.props;

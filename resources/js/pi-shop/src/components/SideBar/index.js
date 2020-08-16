@@ -22,13 +22,22 @@ class SideBar extends Component {
     this.setState({ value: event });
   };
   handleChangeFilterPrice = (event) => {
-    const { onClickFilter } = this.props;
+    const { onClickFilter, filter } = this.props;
     var target = event.target;
-    var filterPrice = {
-      label: "price",
-      value: target.value,
-    };
+
+    if(!target.checked && filter["price"] == target.value) {
+        var filterPrice = {
+            label: "price",
+            value: "",
+          };
+    } else {
+        var filterPrice = {
+            label: "price",
+            value: target.value,
+          };
+    }
     onClickFilter(filterPrice);
+
   };
   renderListFilterPrice = () => {
     const { filter } = this.props;
@@ -59,14 +68,27 @@ class SideBar extends Component {
     return html;
   };
   renderListCategory = () => {
-    const { listCategory, onClickFilter } = this.props;
+    const { listCategory, onClickFilter, filter, classes } = this.props;
+    console.log(filter);
     const html = listCategory.map((category) => {
-      var filter = {
-        label: "category",
-        value: category,
-      };
+        let active = false;
+        var filterCategory = {
+            label: "category",
+            value: category,
+          };
+        if (filter["category_id"] !== undefined && filter["category_id"] == category.id) {
+            active = true;
+            var filterCategory = {
+                label: "category",
+                value: '',
+              };
+        }
+
+
       return (
-        <li onClick={() => onClickFilter(filter)} key={category.id}>
+        <li className= {(active ? classes.categoryActive : 'xxxx')}
+         onClick={() => onClickFilter(filterCategory)}
+          key={category.id}>
           {category.name}
         </li>
       );
@@ -110,7 +132,7 @@ class SideBar extends Component {
 								</div>
 								<button type="submit" className={classes.buttonPriceFilter}>Find</button>
 							</div>
-                        
+
                         </form> */}
             {/* End filter by range price */}
             <ul className={classes.checkboxPriceList}>

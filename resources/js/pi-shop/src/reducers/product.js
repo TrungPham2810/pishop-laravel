@@ -2,7 +2,7 @@ import * as productConstants from "../constants/product";
 
 const initialState = {
   listProduct: [],
-  filter: [234234],
+  filter: [],
 };
 
 const reducer = (state = initialState, action) => {

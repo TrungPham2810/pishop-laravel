@@ -17,6 +17,10 @@ const styles = (theme) => ({
     color: "red",
     padding: "20px 0",
   },
+  categoryActive : {
+    color: "red",
+    background: "#d9dbe0"
+  },
 
   buttonPriceFilter: {
     background: theme.color.main,
@@ -38,7 +42,7 @@ const styles = (theme) => ({
   },
   categoryList: {
     "&>li": {
-      padding: "5px 0",
+      padding: "8px",
     },
   },
   checkboxPriceList: {
