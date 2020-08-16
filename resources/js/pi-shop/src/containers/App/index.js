@@ -12,32 +12,32 @@ import "./styles.css";
 const store = configureStore();
 
 class App extends Component {
-  renderFrontRoutes = () => {
-    let xhtml = null;
-    xhtml = FRONTEND_ROUTES.map((route) => {
-      return (
-        <LayoutRoute
-          key={route.path}
-          name={route.name}
-          path={route.path}
-          component={route.component}
-          exact={route.exact}
-        />
-      );
-    });
-    return xhtml;
-  };
-  render() {
-    return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <ThemeProvider theme={theme}>
-            <Switch>{this.renderFrontRoutes()}</Switch>
-          </ThemeProvider>
-        </BrowserRouter>
-      </Provider>
-    );
-  }
+    renderFrontRoutes = () => {
+        let xhtml = null;
+        xhtml = FRONTEND_ROUTES.map((route) => {
+            return (
+                <LayoutRoute
+                    key={route.path}
+                    name={route.name}
+                    path={route.path}
+                    component={route.component}
+                    exact={route.exact}
+                />
+            );
+        });
+        return xhtml;
+    };
+    render() {
+        return (
+            <Provider store={store}>
+                <BrowserRouter>
+                    <ThemeProvider theme={theme}>
+                        <Switch>{this.renderFrontRoutes()}</Switch>
+                    </ThemeProvider>
+                </BrowserRouter>
+            </Provider>
+        );
+    }
 }
 
 // export default withStyles(styles)(App);

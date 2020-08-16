@@ -11,79 +11,89 @@ import SideBar from "../../components/SideBar";
 import ProductList from "../../components/ProductList";
 
 class ProductListPage extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   const { productActionCreators, filter } = this.props;
-  // }
-  componentDidMount() {
-    const { productActionCreators, categoryActionCreator, filter } = this.props;
-    const { fetchListProduct } = productActionCreators;
-    const { fetchListCategory } = categoryActionCreator;
-    fetchListProduct(filter);
-    fetchListCategory();
-  }
-  // handleFilter = (param) => {
-  //     const { filter } = this.props;
-  //     if(!filter.includes(param) && Array.isArray(param)) {
-  //       filter.push(param);
-  //     }
-  //  }
-
-  handleFilter = (filterRequest, status = true) => {
-    const { productActionCreators, filter } = this.props;
-    const { fetchListProduct } = productActionCreators;
-
-    if (Array.isArray(filter)) {
-      switch (filterRequest.label) {
-        case "category":
-          filter["category_id"] = filterRequest.value.id;
-          break;
-        case "price":
-          filter["price"] = filterRequest.value;
-          break;
-        default:
-      }
+    // constructor(props) {
+    //   super(props);
+    //   const { productActionCreators, filter } = this.props;
+    // }
+    componentDidMount() {
+        const {
+            productActionCreators,
+            categoryActionCreator,
+            filter
+        } = this.props;
+        const { fetchListProduct } = productActionCreators;
+        const { fetchListCategory } = categoryActionCreator;
+        fetchListProduct(filter);
+        fetchListCategory();
     }
+    // handleFilter = (param) => {
+    //     const { filter } = this.props;
+    //     if(!filter.includes(param) && Array.isArray(param)) {
+    //       filter.push(param);
+    //     }
+    //  }
 
-    fetchListProduct(filter, status);
-  };
-  render() {
-    const { classes, listProduct, listCategory, filter, statexx } = this.props;
-    console.log(statexx);
-    return (
-      <div className={classes.productListPage}>
-        <BreadCrumb />
-        <section className={classes.productArea}>
-          <div className="container">
-            <div className="row">
-              <SideBar
-                listCategory={listCategory}
-                filter={filter}
-                onClickFilter={this.handleFilter}
-              />
-              <ProductList listProduct={listProduct} />
+    handleFilter = (filterRequest, status = true) => {
+        const { productActionCreators, filter } = this.props;
+        const { fetchListProduct } = productActionCreators;
+
+        if (Array.isArray(filter)) {
+            switch (filterRequest.label) {
+                case "category":
+                    filter["category_id"] = filterRequest.value.id;
+                    break;
+                case "price":
+                    filter["price"] = filterRequest.value;
+                    break;
+                default:
+            }
+        }
+
+        fetchListProduct(filter, status);
+    };
+    render() {
+        const {
+            classes,
+            listProduct,
+            listCategory,
+            filter,
+            statexx
+        } = this.props;
+        console.log(statexx);
+        return (
+            <div className={classes.productListPage}>
+                <BreadCrumb />
+                <section className={classes.productArea}>
+                    <div className="container">
+                        <div className="row">
+                            <SideBar
+                                listCategory={listCategory}
+                                filter={filter}
+                                onClickFilter={this.handleFilter}
+                            />
+                            <ProductList listProduct={listProduct} />
+                        </div>
+                    </div>
+                </section>
             </div>
-          </div>
-        </section>
-      </div>
-    );
-  }
+        );
+    }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    statexx: state,
-    listProduct: state.productList.listProduct,
-    listCategory: state.categoryList.listCategory,
-    filter: state.productList.filter,
-  };
+    return {
+        statexx: state,
+        listProduct: state.productList.listProduct,
+        listCategory: state.categoryList.listCategory,
+        filter: state.productList.filter
+    };
 };
 const mapDispatchToProps = (dispatch, props) => {
-  return {
-    productActionCreators: bindActionCreators(productActions, dispatch),
-    categoryActionCreator: bindActionCreators(categoryActions, dispatch),
-  };
+    return {
+        productActionCreators: bindActionCreators(productActions, dispatch),
+        categoryActionCreator: bindActionCreators(categoryActions, dispatch)
+    };
 };
 export default withStyles(styles)(
-  connect(mapStateToProps, mapDispatchToProps)(ProductListPage)
+    connect(mapStateToProps, mapDispatchToProps)(ProductListPage)
 );
