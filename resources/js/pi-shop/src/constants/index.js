@@ -40,7 +40,7 @@ export const OPTION_SORT_NUMBER = [
 export const OPTION_SORT_TYPE = [
   { value: "name", label: "Name" },
   { value: "price", label: "Price" },
-  { value: "size", label: "Size" },
+//   { value: "size", label: "Size" },
 ];
 export const FRONTEND_ROUTES = [
   {

@@ -45,6 +45,12 @@ class ProductListPage extends Component {
                 case "price":
                     filter["price"] = filterRequest.value;
                     break;
+                case "limit":
+                    filter["limit"] = filterRequest.value;
+                    break;
+                case "sort":
+                    console.log('dit me may sort');
+                    filter["sort"] = filterRequest.value;
                 default:
             }
         }
@@ -71,7 +77,11 @@ class ProductListPage extends Component {
                                 filter={filter}
                                 onClickFilter={this.handleFilter}
                             />
-                            <ProductList listProduct={listProduct} />
+                            <ProductList
+                             listProduct={listProduct}
+                             filter={filter}
+                             onClickFilter={this.handleFilter}
+                             />
                         </div>
                     </div>
                 </section>

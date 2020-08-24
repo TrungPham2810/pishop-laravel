@@ -6,6 +6,7 @@ import { FILTER_PRICE } from "./../../constants";
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles";
+import cn from 'classnames';
 class SideBar extends Component {
     constructor(props) {
         super(props);
@@ -71,7 +72,6 @@ class SideBar extends Component {
     };
     renderListCategory = () => {
         const { listCategory, onClickFilter, filter, classes } = this.props;
-        console.log(filter);
         const html = listCategory.map(category => {
             let active = false;
             var filterCategory = {
@@ -91,7 +91,8 @@ class SideBar extends Component {
 
             return (
                 <li
-                    className={active ? classes.categoryActive : "xxxx"}
+                    className={cn(classes.categoryItem, {[classes.categoryActive] : active })}
+
                     onClick={() => onClickFilter(filterCategory)}
                     key={category.id}
                 >

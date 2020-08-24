@@ -40,10 +40,10 @@ const styles = theme => ({
         display: "flex",
         marginBottom: 15
     },
-    categoryList: {
-        "&>li": {
-            padding: "8px"
-        }
+    categoryItem: {
+        padding: "8px",
+        cursor: "pointer"
+
     },
     checkboxPriceList: {
         "&>li": {

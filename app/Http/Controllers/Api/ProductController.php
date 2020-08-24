@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+    const DEFAULT_SIZER = 9;
     public function index() {
         return Product::all();
     }
@@ -37,8 +38,10 @@ class ProductController extends Controller
                 }
             }
 
-            if(isset($param['limit'])) {
+            if(isset($param['limit']) && is_numeric($param['limit'])) {
                 $products->limit($param['limit']);
+            } else {
+                $products->limit(self::DEFAULT_SIZER);
             }
             return $products->get();
         }
