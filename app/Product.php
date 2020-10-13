@@ -8,5 +8,5 @@ class Product extends Model
 {
     protected $table = 'products';
     protected $fillable = ['name', 'category', 'price', 'image_path'];
-    public $timestamps = true;
+    public $timestamps = false;
 }

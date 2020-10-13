@@ -13,4 +13,4 @@ require('./bootstrap');
  */
 
  require('./components/Example');
-  require('./pi-shop/src/index');
+ require('./pi-shop/src/index');

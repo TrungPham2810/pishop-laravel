@@ -23,7 +23,7 @@ import Select from "@material-ui/core/Select";
 import logo from "../../../assets/images/logo.png";
 import cn from "classnames";
 import Menu from "../Menu";
-
+import ShortCart from "../../../containers/ShortCart";
 library.add(
   fab,
   faEnvelope,
@@ -192,55 +192,7 @@ class Header extends Component {
                     </Link>
                   </div>
 
-                  <div className={cn(classes.singleBar, classes.shopping)}>
-                    <Link
-                      to="/"
-                      className={cn(classes.singleIcon, classes.iconCart)}
-                    >
-                      <FontAwesomeIcon icon="shopping-bag" />
-                      <span className={classes.totalCount}>3</span>
-                    </Link>
-
-                    {/* <!-- Shopping Item --> */}
-                    <div className={classes.shoppingItem}>
-                      <div className={classes.dropDowmCart}>
-                        <span>2 Items</span>
-                        <a href="!#">View Cart</a>
-                      </div>
-                      <ul className={classes.shoppingList}>
-                        <li>
-                          <div
-                            className={classes.remove}
-                            title="Remove this item"
-                          >
-                            <FontAwesomeIcon icon="times" />
-                          </div>
-                          <Link to="/" className={classes.cartImg} href="!#">
-                            <img
-                              src="https://via.placeholder.com/70x70"
-                              alt="!#"
-                            />
-                          </Link>
-                          <h4>
-                            <Link to="/">Woman Ring</Link>
-                          </h4>
-                          <p className={classes.quantity}>
-                            1x - <span className={classes.amount}>$99.00</span>
-                          </p>
-                        </li>
-                      </ul>
-                      <div className={classes.cartBottom}>
-                        <div className={classes.total}>
-                          <span>Total</span>
-                          <span className={classes.totalAmount}>$134.00</span>
-                        </div>
-                        <Link to="/" className={classes.checkOut}>
-                          Checkout
-                        </Link>
-                      </div>
-                    </div>
-                    {/* <!--/ End Shopping Item --> */}
-                  </div>
+                <ShortCart/>
                 </div>
               </div>
             </div>

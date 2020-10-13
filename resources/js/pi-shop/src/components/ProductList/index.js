@@ -91,25 +91,14 @@ class ProductList extends Component {
                                     />
                                 </div>
                             </div>
-                            {/* <ul className="view-mode">
-								<li className="active"><a href="shop-grid.html"><i className="fa fa-th-large"></i></a></li>
-								<li><a href="shop-list.html"><i className="fa fa-th-list"></i></a></li>
-							</ul> */}
+
                         </div>
                         {/* <!--/ End Shop Top --> */}
                     </div>
                 </div>
                 <div className="row">
                     <div className={classes.productList}>
-                        {listProduct.map((product) => {
-                            return <ProductItem product={product} key={product.id} />;
-                        })}
-                        {/* <ProductItem /> */}
-                        {/* <ProductItem/>
-						<ProductItem/>
-						<ProductItem/>
-						<ProductItem/>
-						<ProductItem/> */}
+                    {this.props.children}
                     </div>
                 </div>
             </div>

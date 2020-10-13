@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import { BrowserRouter, Switch } from "react-router-dom";
 import { withStyles, ThemeProvider } from "@material-ui/core/styles";
 import configureStore from "../../redux/configureStore";
 import { Provider } from "react-redux";
 import theme from "../../commons/Theme/index";
-import { BrowserRouter, Switch } from "react-router-dom";
 import { FRONTEND_ROUTES } from "../../constants";
 import LayoutRoute from "../../commons/layout/frontend/LayoutRoute";
+import Header from "../../components/DashBoard/Header";
+import Footer from "../../components/DashBoard/Footer";
 import styles from "./styles";
 import "./styles.css";
 
@@ -14,7 +16,7 @@ const store = configureStore();
 class App extends Component {
     renderFrontRoutes = () => {
         let xhtml = null;
-        xhtml = FRONTEND_ROUTES.map((route) => {
+        xhtml = FRONTEND_ROUTES.map(route => {
             return (
                 <LayoutRoute
                     key={route.path}
@@ -30,9 +32,11 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <BrowserRouter>
+                <BrowserRouter basename="/">
                     <ThemeProvider theme={theme}>
+                        <Header/>
                         <Switch>{this.renderFrontRoutes()}</Switch>
+                        <Footer/>
                     </ThemeProvider>
                 </BrowserRouter>
             </Provider>

@@ -104,7 +104,7 @@ export const FRONTEND_ROUTES = [
     component: ContactUs,
   },
   {
-    path: "/product-detail",
+    path: "/product-detail/:id",
     name: "Product Detail",
     exact: true,
     component: ProductDetail,

@@ -1,9 +1,20 @@
 import React, { Component } from "react";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles";
+// import { useParams } from "react-router";
 class ProductDetail extends Component {
     render() {
-        const { classes } = this.props;
+        // const location = useLocation();
+        // const history = useHistory();
+        // console.log(location);
+        // console.log(history);
+        console.log(React.version);
+        const { classes, id } = this.props;
+//         const query = new URLSearchParams(this.props.location.search);
+//         const token = query.get('token')
+// console.log(token)//123
+        // let { id } = useParams();
         console.log(this.props);
         return (
             <section>
@@ -292,10 +303,7 @@ class ProductDetail extends Component {
                                         </div>
                                     </div>
 
-                                    <div
-                                        className="tab-pane fade"
-                                        id="companyprofile"
-                                    >
+                                    <div className="tab-pane fade" id="companyprofile">
                                         <div className="col-sm-3">
                                             <div className="product-image-wrapper">
                                                 <div className="single-products">
@@ -493,10 +501,7 @@ class ProductDetail extends Component {
                                         </div>
                                     </div>
 
-                                    <div
-                                        className="tab-pane fade active in"
-                                        id="reviews"
-                                    >
+                                    <div className="tab-pane fade active in" id="reviews">
                                         <div className="col-sm-12">
                                             <ul>
                                                 <li>
@@ -572,11 +577,7 @@ class ProductDetail extends Component {
                                     recommended items
                                 </h2>
 
-                                <div
-                                    id="recommended-item-carousel"
-                                    className="carousel slide"
-                                    data-ride="carousel"
-                                >
+                                <div id="recommended-item-carousel" className="carousel slide" data-ride="carousel">
                                     <div className="carousel-inner">
                                         <div className="item active">
                                             <div className="col-sm-4">
