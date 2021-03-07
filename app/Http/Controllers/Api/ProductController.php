@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
+use App\ProductMediaGallery;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -49,7 +50,10 @@ class ProductController extends Controller
     }
 
     public function show($id) {
-        return Product::find($id);
+        $product = Product::find($id);
+        $listImgGallery = ProductMediaGallery::where('product_id', $id)->get()->toArray();
+        $product->listImgGallery = $listImgGallery;
+        return $product;
     }
 
     public function store(Request $request) {

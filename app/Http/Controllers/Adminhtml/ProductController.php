@@ -53,6 +53,7 @@ class ProductController extends Controller
             $data['price'] = $request->price;
             $data['image_path'] = $imageName;
             $data['category_id'] = $request->category_id;
+            $data['qty'] = $request->qty;
 //            DB::table('products')->insert($data);
 
             $product = new Product();
@@ -138,6 +139,7 @@ class ProductController extends Controller
         $data['description'] = $request->description;
         $data['category_id'] = $request->category_id;
         $data['price'] = $request->price;
+        $data['qty'] = $request->qty;
         if($request->hasFile('more_image_gallery')) {
             $gallerys = $request->file('more_image_gallery');
             foreach ($gallerys as $image) {

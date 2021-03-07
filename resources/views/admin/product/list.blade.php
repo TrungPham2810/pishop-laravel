@@ -54,8 +54,9 @@
                         <th style="width: 15%">Product Name</th>
                         <th style="width: 15%">Category</th>
                         <th style="width: 10%">Price</th>
+                        <th style="width: 10%">Qty</th>
 
-                        <th style="width: 20%">Description</th>
+                        <th style="width: 10%">Description</th>
                         <th style="width: 5%">Action</th>
                     </tr>
                     </thead>
@@ -68,6 +69,7 @@
                             <td>{{$item->name}}</td>
                             <td>{{$item->category_name}}</td>
                             <td>{{$item->price}}</td>
+                            <td>{{$item->qty}}</td>
 
                             <td><span class="text-ellipsis">{{$item->description}}</span></td>
                             <td>

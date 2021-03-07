@@ -27,9 +27,12 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Price</label>
-                                <input type="text" class="form-control" required value="{{$data->price}}" name="price" id="exampleInputEmail1">
+                                <input type="text" class="form-control" required value="{{$data->price}}" name="price" id="">
                             </div>
-
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Quantity</label>
+                                <input type="number" class="form-control" required id="qty" value="{{$data->qty}}" name="qty">
+                            </div>
                             <div class="form-group">
                                 <img style="width: 80px; height: 80px" src="{{ asset('resources/upload/product/images/'.$data->image_path) }}" alt="{{$data->image_path}}">
                                 <label>Images</label>

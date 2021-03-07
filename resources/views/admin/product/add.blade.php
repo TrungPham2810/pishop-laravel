@@ -29,6 +29,11 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="exampleInputPassword1">Quantity</label>
+                                <input class="form-control" required id="qty" value ='{!! old('qty') !!}' name="qty">
+                            </div>
+
+                            <div class="form-group">
                                 <label>Images</label>
                                 <input type="file" name="fImages">
                             </div>
